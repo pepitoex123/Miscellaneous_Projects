@@ -1,0 +1,473 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+
+
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translatey(-5px);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+}
+
+@keyframes stopfloating{
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(3px);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translatey(-3px);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+}
+
+@keyframes showup {
+	0% {
+		transform: translateX(-20rem);
+	}
+	50% {
+		transform: translateX(-10rem);
+	}
+  75%{
+    transform: translateX(-5rem);
+  }
+  85%{
+    transform: translateX(2rem);
+  }
+	100% {
+		transform: translateX(0rem);
+	}
+}
+
+@keyframes stopshowingup{
+	0% {
+		transform: translateX(2rem);
+	}
+	25%{
+		transform: translateX(0rem);
+	}
+	50% {
+		transform: translateX(-10rem);
+	}
+	75%{
+		transform: translateX(-15rem);
+	}
+	85%{
+		transform: translateX(-20rem);
+	}
+	100% {
+		transform: translateX(-25rem);
+	}
+}
+
+
+
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+body {
+   background: #f4f1e5;
+   color: #544738;
+   font-family: 'Kulminoituva',helvetica, sans-serif;
+}
+
+@font-face {
+  font-family: 'Kulminoituva';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Kulminoituva'), url('../fonts/kulminoituva.woff') format('woff');
+}
+
+/*
+
+---------------------------Header-------------------------------------
+
+*/
+header{
+  display: flex;
+  flex-direction: row;
+	background: #EF3B36;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #FFFFFF, #f4f1e5);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #FFFFFF, #f4f1e5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.header__logo img{
+  height: 15rem;
+  width: 15rem;
+  transition: all 0.3s;
+}
+
+.header__logo img:hover{
+  height: 17rem;
+  width: 17rem;
+}
+
+
+#header__nav{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+header ul li {
+ list-style: none;
+ margin-right: 1rem;
+ font-family: 'Kulminoituva', helvetica, sans-serif;
+ font-size: 2.8rem;
+ padding: 1.2rem;
+}
+
+header li a {
+ color: #544738;
+ text-decoration: none;
+ float: left;
+ transition: 0.3s;
+}
+header li a:hover {
+ color: #7eb9be;
+ transform: rotate(-10deg) scale(1.2);
+}
+
+.header__nav__menu{
+  display: none;
+  font-family: 'Kulminoituva', helvetica, sans-serif;
+}
+
+#header__navmobile{
+  display: none;
+}
+
+
+
+
+
+html header button, body header button {
+  align-self: center;
+  background: transparent;
+  padding: 1rem 1rem;
+  margin: 0 1rem;
+  transition: all 0.5s ease;
+  color: #41403E;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  outline: none;
+  box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  /*
+  Above is shorthand for:
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  border-bottom-right-radius: 225px 15px;
+  border-bottom-left-radius:15px 255px;
+  */
+}
+.header__nav__menu__button:hover, .header__nav__menu__button:hover {
+  box-shadow: 2px 8px 4px -6px rgba(0, 0, 0, 0.3);
+  animation: float 6s ease-in-out infinite;
+  border: solid 7px #7eb9be !important;
+}
+html header button.lined.thick, body header button.lined.thick {
+  border: solid 7px #41403E;
+}
+html header button.dotted.thick, body header button.dotted.thick {
+  border: dotted 5px #41403E;
+}
+html header button.dashed.thick, body header button.dashed.thick {
+  border: dashed 5px #41403E;
+}
+html header button.lined.thin, body header button.lined.thin {
+  border: solid 2px #41403E;
+}
+html header button.dotted.thin, body header button.dotted.thin {
+  border: dotted 2px #41403E;
+}
+html header button.dashed.thin, body header button.dashed.thin {
+  border: dashed 2px #41403E;
+}
+
+.active__nav{
+  display: block;
+  animation: showup 2s ease-in-out;
+	animation-iteration-count: 1;
+}
+
+.inactive__nav{
+	animation: stopshowingup 2s ease-in-out;
+	animation-iteration-count: 1;
+}
+
+
+.active__button{
+  color: rgb(124,10,2) !important;
+  border: solid 7px #D93A32 !important;
+  animation: stopfloating 2s ease-in-out;
+	animation-iteration-count: 1;
+  transition: all 0.2s !important;
+}
+
+.active__button:hover{
+	box-shadow: 2px 8px 4px -6px rgba(0, 0, 0, 0.3);
+	animation: float 6s ease-in-out infinite;
+	border: solid 7px #f88379 !important;
+}
+
+
+/*
+
+---------------------------End of Header-------------------------------------
+
+*/
+
+
+/*
+
+---------------------------Footer-------------------------------------
+
+*/
+
+
+
+
+.footer-distributed{
+	font-family: Roboto;
+	background: #444;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	font: bold 16px sans-serif;
+	text-align: left;
+	padding: 50px 60px 40px;
+	overflow: hidden;
+}
+
+section {
+  width: 100%;
+  display: inline-block;
+  background: #ccc;
+  height: 60vh;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+	float: left;
+}
+
+/* The company logo */
+
+.footer-distributed h3{
+	color:  #ffffff;
+	font: normal 36px 'Roboto', cursive;
+	margin: 0 0 10px;
+}
+
+.footer-distributed h3 span{
+	color:  #5383d3;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+	color:  #ffffff;
+	margin: 0 0 10px;
+	padding: 0;
+}
+
+.footer-distributed .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-distributed .footer-links a:hover{
+	color:  #7eb9be;
+}
+
+.footer-distributed .footer-company-name{
+	color:  #8f9296;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+/* Footer social icons */
+
+.footer-distributed .footer-icons{
+	margin-top: 40px;
+}
+
+.footer-distributed .footer-icons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color:  #33383b;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+
+	margin-right: 3px;
+	margin-bottom: 5px;
+	transition: all 0.3s;
+}
+
+.footer-distributed .footer-icons a:hover{
+	background-color:  #ff4f00;
+	width: 40px;
+	height: 40px;
+}
+
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 1000px) {
+
+	.footer-distributed {
+		font: bold 14px sans-serif;
+	}
+
+	.footer-distributed .footer-company-name{
+		font-size: 12px;
+	}
+
+	.footer-distributed form input,
+	.footer-distributed form textarea{
+		width: 250px;
+	}
+
+	.footer-distributed form button{
+		padding: 10px 35px;
+	}
+
+}
+
+@media (max-width: 800px) {
+
+	.footer-distributed{
+		padding: 30px;
+	}
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-right{
+		float: none;
+		max-width: 300px;
+		margin: 0 auto;
+	}
+
+	.footer-distributed .footer-left{
+		margin-bottom: 40px;
+	}
+
+	.footer-distributed form{
+		margin-top: 30px;
+	}
+
+	.footer-distributed form{
+		display: block;
+	}
+
+	.footer-distributed form button{
+		float: none;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+/*
+
+---------------------------End Of Footer-------------------------------------
+
+*/
+
+
+
+/*
+
+---------------------------Header Media Queries-------------------------------------
+
+*/
+
+@media (max-width: 750px) {
+  header ul li{
+    font-size: 2.4rem;
+    padding: 0.7rem;
+  }
+  .header__logo img{
+    height: 10rem;
+    width: 10rem;
+  }
+  .header__logo img:hover{
+    height: 11rem;
+    width: 11rem;
+  }
+	.header__navmobile{
+		display:none !important;
+	}
+}
+
+@media (max-width: 620px) {
+  body header button {
+    align-self: center;
+    margin-bottom: 2rem;
+  }
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  #header__nav li{
+    display: none;
+  }
+  .header__logo img{
+    height: 10rem;
+    width: 10rem;
+  }
+  .header__logo img:hover{
+    height: 11rem;
+    width: 11rem;
+  }
+  .header__nav__menu,
+  .header__nav__menu__button{
+    display: inherit;
+    cursor: pointer;
+  }
+}
+
+/*
+
+---------------------------End Of Header Media Queries-------------------------------------
+
+*/
